@@ -6,6 +6,7 @@ import PlanCard from '../components/planCard';
 import arcadeIcon from '../assets/img/icon-arcade.svg';
 import advancedIcon from '../assets/img/icon-advanced.svg';
 import proIcon from '../assets/img/icon-pro.svg';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Step2 = () => {
   const { handleSetCurrentStep, handleData2, handleData3null, data2 } = useContext(RootContext)
@@ -60,41 +61,48 @@ const Step2 = () => {
   }
   
   return (
-    <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col">
-      <div className="bg-white py-6 md:py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
-        <div className="text-content mb-4 md:mb-6">
-            <h1 className="text-2xl md:text-4xl font-semibold mb-2">Select your plan</h1>
-            <p className="text-neutral-400 text-sm">You have the option of monthly or yearly billing.</p>
-        </div>
+    <AnimatePresence mode='wait'>
+      <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col">
+        <div className="bg-white py-6 md:py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
+          <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -100, opacity: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-content mb-4 md:mb-6">
+              <h1 className="text-2xl md:text-4xl font-semibold mb-2">Select your plan</h1>
+              <p className="text-neutral-400 text-sm">You have the option of monthly or yearly billing.</p>
+          </motion.div>
 
-        { yearly ? <div className="flex flex-col md:flex-row gap-2">
-          {plans.map((plan, i) => plan.type === 'yearly' && <PlanCard key={i} icon={plan.icon} title={plan.name} priceYr={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} />)}
-        </div> : <div className="flex flex-col md:flex-row gap-2">
-        {plans.map((plan, i) => plan.type === 'monthly' && <PlanCard key={i} icon={plan.icon} title={plan.name} priceMo={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} />)}
-        </div> }
-        
-        <div className="w-full pt-8 pb-4 md:py-10 flex items-center justify-center gap-4">
-          <p>Monthly</p>
-          <button onClick={() => {
-            setYearly(!yearly)
-            handlePlan(false)
-            handleData3null()
-          }} className="w-8 aspect-video rounded-full bg-content-color p-1">
-            <span className={`block w-3 h-3 rounded-full bg-white duration-150 ${ yearly ? 'translate-x-full' : '' }`}></span>
-          </button>
-          <p>Yearly</p>
+          { yearly ? <div className="flex flex-col md:flex-row gap-2">
+            {plans.map((plan, i) => plan.type === 'yearly' && <PlanCard key={i} id={i} icon={plan.icon} title={plan.name} priceYr={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} />)}
+          </div> : <div className="flex flex-col md:flex-row gap-2">
+          {plans.map((plan, i) => plan.type === 'monthly' && <PlanCard key={i} id={i} icon={plan.icon} title={plan.name} priceMo={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} />)}
+          </div> }
+
+          <div className="w-full pt-8 pb-4 md:py-10 flex items-center justify-center gap-4">
+            <p>Monthly</p>
+            <button onClick={() => {
+              setYearly(!yearly)
+              handlePlan(false)
+              handleData3null()
+            }} className="w-8 aspect-video rounded-full bg-content-color p-1">
+              <span className={`block w-3 h-3 rounded-full bg-white duration-150 ${ yearly ? 'translate-x-full' : '' }`}></span>
+            </button>
+            <p>Yearly</p>
+          </div>
+        </div>
+        <div className="flex-1 flex items-end py-5 md:p-0">
+          <div className="w-full flex items-center justify-between">
+            <button onClick={() => {
+                handleData2(chosenPlan)
+                handleSetCurrentStep(1)
+              }} className='text-neutral-600 font-medium hover:text-content-color active:text-slate-950'>Go Back</button>
+            <ButtonPrimary name={'Next Step'} onClick={handleSubmit} inactive={chosenPlan ? false : true} />
+          </div>
         </div>
       </div>
-      <div className="flex-1 flex items-end py-5 md:p-0">
-        <div className="w-full flex items-center justify-between">
-          <button onClick={() => {
-              handleData2(chosenPlan)
-              handleSetCurrentStep(1)
-            }} className='text-neutral-600 font-medium hover:text-content-color active:text-slate-950'>Go Back</button>
-          <ButtonPrimary name={'Next Step'} onClick={handleSubmit} inactive={chosenPlan ? false : true} />
-        </div>
-      </div>
-    </div>
+    </AnimatePresence>
   )
 }
 

@@ -1,4 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
+import { motion } from "framer-motion";
+
 import ButtonPrimary from "../components/button";
 import { RootContext } from "../components/context";
 import Step5 from "./step5";
@@ -58,11 +60,21 @@ const Step4 = () => {
     return <Step5 />
   } else {
   return (
-    <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col relative">
+    <motion.div 
+    initial={{ x: 100, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    exit={{ x: -100, opacity: 0 }}
+    transition={{ delay: 0.1 }}
+    className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col relative">
 
       {isLoading && <Loading />}
 
-      <div className="bg-white py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
+      <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -100, opacity: 0 }}
+          transition={{ delay: 0.15 }}
+      className="bg-white py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
         <div className="text-content mb-4 md:mb-6">
           <h1 className="text-2xl md:text-4xl font-semibold mb-2">
             Finishing up
@@ -73,30 +85,45 @@ const Step4 = () => {
         </div>
         <div className="w-full">
           <div className="p-5 rounded-lg bg-slate-100">
-            {data2 && <div className="flex items-center justify-between pb-4 border-b-2">
+            {data2 && <motion.div 
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ delay: 0.2 }}
+            className="flex items-center justify-between pb-4 border-b-2">
               <div>
                 <h3 className="font-semibold">{data2.name} ({data2.type})</h3>
                 <button className="text-sm leading-3 text-neutral-400 font-medium border-b-2 border-neutral-400" onClick={() => handleSetCurrentStep(2)}>Change</button>
               </div>
               <p className="font-semibold">${data2.price}/{data2.type === 'yearly' ? 'yr' : 'mo'}</p>
-            </div>}
+            </motion.div>}
             {data3 && data3.map(item => {
               return (
-                <div key={item.id} className="py-2 flex items-center justify-between">
+                <motion.div 
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -100, opacity: 0 }}
+                transition={{ delay: 0.25 }}
+                key={item.id} className="py-2 flex items-center justify-between">
                   <p className="text-neutral-400">{item.name}</p>
                   <p className="font-medium">${item.price}/{item.type}</p>
-                </div>
+                </motion.div>
               )
             })}
           </div>
 
-          <div className="py-3 px-5 flex items-center justify-between">
+          <motion.div 
+          initial={{ scale: 2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0, opacity: 0 }}
+          transition={{ delay: 0.3 }}
+          className="py-3 px-5 flex items-center justify-between">
             <p className="text-neutral-400">Total (per {data2.type === 'yearly' ? 'year' : 'mounth'})</p>
             <p className="font-semibold text-content-color-2 text-lg">+${order && order.price}/{data2.type === 'yearly' ? 'yr' : 'mo'}</p>
-          </div>
+          </motion.div>
 
         </div>
-      </div>
+      </motion.div>
       <div className="flex-1 flex items-end justify-end py-5 md:p-0">
         <div className="w-full flex items-center justify-between">
           <button
@@ -108,7 +135,7 @@ const Step4 = () => {
           <button className='py-2.5 px-5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:bg-blue-900 active:scale-95 duration-100 text-sm' onClick={handleSubmit}>Confirm</button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
   }
 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
+import { motion } from "framer-motion";
 import ButtonPrimary from "../components/button";
 import { RootContext } from "../components/context";
 import AddOns from "../components/addOns";
@@ -99,16 +100,26 @@ const Step3 = () => {
   }
 
   return (
-    <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col">
+    <motion.div 
+    initial={{ x: 100, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    exit={{ x: -100, opacity: 0 }}
+    transition={{ delay: 0.1 }}
+    className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col">
       <div className="bg-white py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
-        <div className="text-content mb-4 md:mb-6">
+        <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -100, opacity: 0 }}
+          transition={{ delay: 0.15 }}
+        className="text-content mb-4 md:mb-6">
           <h1 className="text-2xl md:text-4xl font-semibold mb-2">
             Pick add-ons
           </h1>
           <p className="text-neutral-400 text-sm">
             Add-ons help enhance your gaming experience.
           </p>
-        </div>
+        </motion.div>
         <div className="w-full">
           {yearly ? (
             <div className="w-full flex flex-col gap-2">
@@ -167,7 +178,7 @@ const Step3 = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
