@@ -22,7 +22,7 @@ const Step5 = () => {
               animate={{ scale: 10, y: 2 }}
               exit={{ opacity: 0, y: 2 }}
               transition={{ duration: 1.2, ease: [0.65, 1.67, 0.69, 0.44] }}
-              className="absolute z-40 md:top-0 left-0 w-96 h-96 md:w-[430px] md:h-[430px] rounded-full bg-slate-400 flex items-center justify-center"
+              className="absolute z-40 md:top-0 md:left-0 w-96 h-96 md:w-[430px] md:h-[430px] rounded-full bg-slate-400 flex items-center justify-center"
             >
               <motion.div
                 initial={{ scale: 0 }}
