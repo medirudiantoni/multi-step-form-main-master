@@ -22,7 +22,7 @@ const Step5 = () => {
               animate={{ scale: 10, y: 2 }}
               exit={{ opacity: 0, y: 2 }}
               transition={{ duration: 1.2, ease: [0.65, 1.67, 0.69, 0.44] }}
-              className="absolute z-40 md:top-0 md:left-0 w-96 h-96 md:w-[430px] md:h-[430px] rounded-full bg-slate-400 flex items-center justify-center"
+              className="absolute z-40 md:top-0 md:left-0 w-96 h-96 md:w-[430px] md:h-[430px] rounded-full bg-pink-theme flex items-center justify-center"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -32,7 +32,7 @@ const Step5 = () => {
                   delay: 0.15,
                   ease: [0.65, 1.67, 0.69, 0.44],
                 }}
-                className="absolute z-[41] w-full h-full rounded-full bg-white flex items-center justify-center"
+                className="absolute z-[41] w-full h-full rounded-full bg-skin-theme flex items-center justify-center"
               >
                 <motion.div
                   initial={{ scale: 0 }}
@@ -42,8 +42,19 @@ const Step5 = () => {
                     delay: 0.3,
                     ease: [0.65, 1.67, 0.69, 0.44],
                   }}
-                  className="absolute z-[41] w-full h-full rounded-full bg-slate-200 flex items-center justify-center"
+                  className="absolute z-[41] w-full h-full rounded-full bg-blue-theme flex items-center justify-center"
+                >
+                  <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    duration: 1.2,
+                    delay: 0.45,
+                    ease: [0.65, 1.67, 0.69, 0.44],
+                  }}
+                  className="absolute z-[41] w-full h-full rounded-full bg-white flex items-center justify-center"
                 ></motion.div>
+                </motion.div>
               </motion.div>
             </motion.div>
           )}

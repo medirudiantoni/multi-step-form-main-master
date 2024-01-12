@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const PlanCard = ({id, icon, title, priceYr, priceMo, onClick, isActive, isChosen}) => {
   return (
-    <motion.div 
+    <motion.button 
     initial={{ y: 100, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     exit={{ y: -100, opacity: 0 }}
@@ -20,7 +20,7 @@ const PlanCard = ({id, icon, title, priceYr, priceMo, onClick, isActive, isChose
             </p>
             {priceYr && <p className='text-xs'>2 months free</p>}
         </div>
-    </motion.div>
+    </motion.button>
   )
 }
 

@@ -10,12 +10,12 @@ const AddOns = ({title, desc, price, id, onChange, checked}) => {
     }
   })
   return (
-    <motion.div 
+    <motion.button 
     initial={{ x: -100, opacity: 0 }}
     animate={{ x: 0, opacity: 1 }}
     exit={{ x: 100, opacity: 0 }}
     transition={{ delay: id / 50 }}
-    className='w-full'>
+    className='w-full inline-block'>
         <label htmlFor={`input-checkbox-${id}`}>
             <div className={`w-full py-3 md:py-4 px-3 md:px-5 rounded-lg border-2 flex items-center gap-4 hover:bg-slate-100 cursor-pointer ${ checked && 'border-content-color' }`}>
                 <div className="relative w-5 h-5">
@@ -32,7 +32,7 @@ const AddOns = ({title, desc, price, id, onChange, checked}) => {
                 </div>
             </div>
         </label>
-    </motion.div>
+    </motion.button>
   )
 }
 

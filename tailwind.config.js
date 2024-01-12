@@ -13,7 +13,10 @@ export default {
         'bg-color': "#EEF5FF",
         'content-color': "#01295A",
         'content-color-2': "#493EFF",
-        'hover-color': "#18498B"
+        'hover-color': "#18498B",
+        'blue-theme': "#483EFF",
+        'pink-theme': "#F9818D",
+        'skin-theme': "#FFAF7E"
       },
       keyframes: {
         'getar': {
