@@ -13,7 +13,7 @@ const Step5 = () => {
     }, 2000);
   });
   return (
-    <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col relative">
+    <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-blue-marine flex flex-col relative">
       <div className="w-full h-fit md:h-full bg-white py-20 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20 flex items-center justify-center">
         <AnimatePresence mode="wait">
           {!isDone && (
@@ -85,7 +85,7 @@ const Step5 = () => {
               <h1 className="text-2xl md:text-4xl font-semibold mb-4">
                 Thank you
               </h1>
-              <p className="text-neutral-500">
+              <p className="text-gray-cool">
                 Thanks for confirming your subscription! We hope you have fun
                 using our platform. If you ever need support, please feel free
                 to email us at support@loremgaming.com.

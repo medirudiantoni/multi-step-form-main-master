@@ -11,12 +11,19 @@ export default {
       },
       colors: {
         'bg-color': "#EEF5FF",
-        'content-color': "#01295A",
-        'content-color-2': "#493EFF",
         'hover-color': "#18498B",
         'blue-theme': "#483EFF",
         'pink-theme': "#F9818D",
-        'skin-theme': "#FFAF7E"
+        'skin-theme': "#FFAF7E",
+        'blue-marine': "#02295A",
+        'blue-purplish': "#473DFF",
+        'blue-pastel': "#ADBEFF",
+        'blue-light': "#BFE2FD",
+        'red-strawberry': "#ED3548",
+        'gray-cool': "#9699AB",
+        'gray-light': "#D6D9E6",
+        'magnolia': "#F0F6FF",
+        'alabaster': "#FAFBFF"
       },
       keyframes: {
         'getar': {

@@ -105,7 +105,7 @@ const Step3 = () => {
     animate={{ x: 0, opacity: 1 }}
     exit={{ x: -100, opacity: 0 }}
     transition={{ delay: 0.1 }}
-    className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col">
+    className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-blue-marine flex flex-col">
       <div className="bg-white py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
         <motion.div 
           initial={{ x: 100, opacity: 0 }}
@@ -116,7 +116,7 @@ const Step3 = () => {
           <h1 className="text-2xl md:text-4xl font-semibold mb-2">
             Pick add-ons
           </h1>
-          <p className="text-neutral-400 text-sm">
+          <p className="text-gray-cool text-sm">
             Add-ons help enhance your gaming experience.
           </p>
         </motion.div>
@@ -168,7 +168,7 @@ const Step3 = () => {
             onClick={() => {
               handleSetCurrentStep(2)
             }}
-            className="text-neutral-600 font-medium hover:text-content-color active:text-slate-950"
+            className="text-gray-cool font-medium hover:text-blue-marine active:text-slate-950"
           >
             Go Back
           </button>

@@ -62,7 +62,7 @@ const Step2 = () => {
   
   return (
     <AnimatePresence mode='wait'>
-      <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col">
+      <div className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-blue-marine flex flex-col">
         <div className="bg-white py-6 md:py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
           <motion.div 
           initial={{ x: 100, opacity: 0 }}
@@ -71,7 +71,7 @@ const Step2 = () => {
           transition={{ delay: 0.1 }}
           className="text-content mb-4 md:mb-6">
               <h1 className="text-2xl md:text-4xl font-semibold mb-2">Select your plan</h1>
-              <p className="text-neutral-400 text-sm">You have the option of monthly or yearly billing.</p>
+              <p className="text-gray-cool text-sm">You have the option of monthly or yearly billing.</p>
           </motion.div>
 
           { yearly ? <div className="flex flex-col md:flex-row gap-2">
@@ -86,7 +86,7 @@ const Step2 = () => {
               setYearly(!yearly)
               handlePlan(false)
               handleData3null()
-            }} className="w-8 aspect-video rounded-full bg-content-color p-1">
+            }} className="w-8 aspect-video rounded-full bg-blue-marine p-1">
               <span className={`block w-3 h-3 rounded-full bg-white duration-150 ${ yearly ? 'translate-x-full' : '' }`}></span>
             </button>
             <p>Yearly</p>
@@ -97,7 +97,7 @@ const Step2 = () => {
             <button onClick={() => {
                 handleData2(chosenPlan)
                 handleSetCurrentStep(1)
-              }} className='text-neutral-600 font-medium hover:text-content-color active:text-slate-950'>Go Back</button>
+              }} className='text-gray-cool font-medium hover:text-blue-marine active:text-slate-950'>Go Back</button>
             <ButtonPrimary name={'Next Step'} onClick={handleSubmit} inactive={chosenPlan ? false : true} />
           </div>
         </div>

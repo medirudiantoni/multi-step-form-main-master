@@ -65,7 +65,7 @@ const Step4 = () => {
     animate={{ x: 0, opacity: 1 }}
     exit={{ x: -100, opacity: 0 }}
     transition={{ delay: 0.1 }}
-    className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-content-color flex flex-col relative">
+    className="w-full h-full px-5 md:px-[100px] md:py-[46px] text-blue-marine flex flex-col relative">
 
       {isLoading && <Loading />}
 
@@ -79,7 +79,7 @@ const Step4 = () => {
           <h1 className="text-2xl md:text-4xl font-semibold mb-2">
             Finishing up
           </h1>
-          <p className="text-neutral-400 text-sm">
+          <p className="text-gray-cool text-sm">
             Double-check everything looks OK before confirming
           </p>
         </div>
@@ -93,7 +93,7 @@ const Step4 = () => {
             className="flex items-center justify-between pb-4 border-b-2">
               <div>
                 <h3 className="font-semibold">{data2.name} ({data2.type})</h3>
-                <button className="text-sm leading-3 text-neutral-400 font-medium border-b-2 border-neutral-400" onClick={() => handleSetCurrentStep(2)}>Change</button>
+                <button className="text-sm leading-3 text-gray-cool font-medium border-b-2 border-gray-cool hover:text-blue-purplish hover:border-b-blue-purplish" onClick={() => handleSetCurrentStep(2)}>Change</button>
               </div>
               <p className="font-semibold">${data2.price}/{data2.type === 'yearly' ? 'yr' : 'mo'}</p>
             </motion.div>}
@@ -105,7 +105,7 @@ const Step4 = () => {
                 exit={{ y: -100, opacity: 0 }}
                 transition={{ delay: 0.25 }}
                 key={item.id} className="py-2 flex items-center justify-between">
-                  <p className="text-neutral-400">{item.name}</p>
+                  <p className="text-gray-cool">{item.name}</p>
                   <p className="font-medium">${item.price}/{item.type}</p>
                 </motion.div>
               )
@@ -118,8 +118,8 @@ const Step4 = () => {
           exit={{ scale: 0, opacity: 0 }}
           transition={{ delay: 0.3 }}
           className="py-3 px-5 flex items-center justify-between">
-            <p className="text-neutral-400">Total (per {data2.type === 'yearly' ? 'year' : 'mounth'})</p>
-            <p className="font-semibold text-content-color-2 text-lg">+${order && order.price}/{data2.type === 'yearly' ? 'yr' : 'mo'}</p>
+            <p className="text-gray-cool">Total (per {data2.type === 'yearly' ? 'year' : 'month'})</p>
+            <p className="font-semibold text-blue-purplish text-lg">+${order && order.price}/{data2.type === 'yearly' ? 'yr' : 'mo'}</p>
           </motion.div>
 
         </div>
@@ -128,7 +128,7 @@ const Step4 = () => {
         <div className="w-full flex items-center justify-between">
           <button
             onClick={() => handleSetCurrentStep(3)}
-            className="text-neutral-600 font-medium hover:text-content-color active:text-slate-950"
+            className="text-gray-cool font-medium hover:text-blue-marine active:text-slate-950"
           >
             Go Back
           </button>

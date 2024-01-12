@@ -47,7 +47,7 @@ const Step1 = () => {
   return (
     <AnimatePresence mode='wait'>
       <div 
-      className="w-full h-full px-5 sm:px-20 md:px-[100px] md:py-[46px] text-content-color flex flex-col">
+      className="w-full h-full px-5 sm:px-20 md:px-[100px] md:py-[46px] text-blue-marine flex flex-col">
         <div className="bg-white py-9 px-6 md:p-0 rounded-lg shadow-xl md:shadow-none relative z-20">
           <motion.div 
           initial={{ x: 100, opacity: 0 }}
@@ -56,7 +56,7 @@ const Step1 = () => {
           transition={{ delay: 0.1 }}
           className="text-content mb-4 md:mb-6">
               <h1 className="text-2xl md:text-4xl font-semibold mb-2">Personal info</h1>
-              <p className="text-neutral-400 text-sm">Please provide your name, email address, and phone number.</p>
+              <p className="text-gray-cool text-sm">Please provide your name, email address, and phone number.</p>
           </motion.div>
           <form className='text-sm'>
               <motion.div 
