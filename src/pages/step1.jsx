@@ -44,6 +44,12 @@ const Step1 = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
   return (
     <AnimatePresence mode='wait'>
       <div 
@@ -97,7 +103,7 @@ const Step1 = () => {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -100, opacity: 0 }}
                 transition={{ delay: 0.35 }}
-              className="flex items-center justify-between">
+                className="flex items-center justify-between">
                 <label htmlFor="phone" className='block font-medium'>Phone number</label>
                 {phoneError && <p className='font-semibold text-red-600'>This field is required</p>}
               </motion.div>
@@ -106,7 +112,8 @@ const Step1 = () => {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -100, opacity: 0 }}
                 transition={{ delay: 0.4 }}
-              value={phone} onChange={(e) => setPhone(e.target.value)} type="number" id='phone' placeholder='e.g. +1 234 567 890' className={`p-2.5 rounded-lg border-2 w-full mt-1 md:mb-6 bg-inherit ${ phoneError && 'border-red-600 bg-red-100 animate-bergetar' }`} />
+                onKeyPress={handleKeyPress}
+                value={phone} onChange={(e) => setPhone(e.target.value)} type="number" id='phone' placeholder='e.g. +1 234 567 890' className={`p-2.5 rounded-lg border-2 w-full mt-1 md:mb-6 bg-inherit ${ phoneError && 'border-red-600 bg-red-100 animate-bergetar' }`} />
           </form>
         </div>
         <div className="flex-1 flex items-end justify-end py-5 md:p-0">

@@ -12,7 +12,6 @@ const Step2 = () => {
   const { handleSetCurrentStep, handleData2, handleData3null, data2 } = useContext(RootContext)
   const [yearly, setYearly] = useState(false)
   const [chosenPlan, setChosenPlan] = useState(false);
-  
   useEffect(() => {
     if(data2){
       setChosenPlan(data2)
@@ -59,6 +58,12 @@ const Step2 = () => {
       handleSetCurrentStep(3);
     }
   }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
   
   return (
     <AnimatePresence mode='wait'>
@@ -75,9 +80,9 @@ const Step2 = () => {
           </motion.div>
 
           { yearly ? <div className="flex flex-col md:flex-row gap-2">
-            {plans.map((plan, i) => plan.type === 'yearly' && <PlanCard key={i} id={i} icon={plan.icon} title={plan.name} priceYr={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} />)}
+            {plans.map((plan, i) => plan.type === 'yearly' && <PlanCard key={i} id={i} icon={plan.icon} title={plan.name} priceYr={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} onKeyPress={handleKeyPress} />)}
           </div> : <div className="flex flex-col md:flex-row gap-2">
-          {plans.map((plan, i) => plan.type === 'monthly' && <PlanCard key={i} id={i} icon={plan.icon} title={plan.name} priceMo={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} />)}
+          {plans.map((plan, i) => plan.type === 'monthly' && <PlanCard key={i} id={i} icon={plan.icon} title={plan.name} priceMo={plan.price} onClick={() => handlePlan(plans[i])} isActive={chosenPlan && chosenPlan.price === plan.price ? true : false} isChosen={data2 && data2.price === plan.price ? true : false} onKeyPress={handleKeyPress} />)}
           </div> }
 
           <div className="w-full pt-8 pb-4 md:py-10 flex items-center justify-center gap-4">
